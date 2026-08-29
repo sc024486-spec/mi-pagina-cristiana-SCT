@@ -1,71 +1,24 @@
+
 document.addEventListener("DOMContentLoaded", function () {
 
-    const botonEntrar = document.getElementById("entrar");
-    const entrada = document.getElementById("entrada");
-    const pagina = document.getElementById("pagina");
-
     /* =========================================
-       ENTRAR
+       TARJETAS - GIRAR
     ========================================= */
 
-    botonEntrar.addEventListener("click", function () {
+    document.addEventListener("click", function (e) {
 
-        // Evitar que se pueda pulsar varias veces
-        botonEntrar.disabled = true;
+        const boton = e.target.closest(".boton-voltear");
 
-        // Abrir las puertas
-        entrada.classList.add("abierta");
+        if (!boton) return;
 
+        const tarjeta = boton.closest(".tarjeta");
 
-        // Después de que las puertas se abran
-        setTimeout(function () {
+        if (!tarjeta) return;
 
-            // Ocultar pantalla de entrada
-            entrada.style.opacity = "0";
+        e.preventDefault();
+        e.stopPropagation();
 
-        }, 1800);
-
-
-        // Mostrar página
-        setTimeout(function () {
-
-            entrada.style.display = "none";
-
-            pagina.classList.add("mostrar");
-
-            // Llevar al inicio
-            window.scrollTo(0, 0);
-
-        }, 3000);
-
-    });
-
-
-    /* =========================================
-       VOLTEAR TARJETAS
-    ========================================= */
-
-    const tarjetas =
-        document.querySelectorAll(".tarjeta");
-
-
-    tarjetas.forEach(function (tarjeta) {
-
-        const botones =
-            tarjeta.querySelectorAll(".boton-voltear");
-
-
-        botones.forEach(function (boton) {
-
-            boton.addEventListener("click", function (e) {
-
-                e.stopPropagation();
-
-                tarjeta.classList.toggle("volteada");
-
-            });
-
-        });
+        tarjeta.classList.toggle("volteada");
 
     });
 
@@ -74,19 +27,15 @@ document.addEventListener("DOMContentLoaded", function () {
        COMPARTIR
     ========================================= */
 
-const botonCompartir =
-    document.getElementById("botonCompartir");
+    const botonCompartir =
+        document.getElementById("botonCompartir");
 
+    if (botonCompartir) {
 
-if (botonCompartir) {
-
-    botonCompartir.addEventListener(
-        "click",
-        async function () {
+        botonCompartir.addEventListener("click", async function () {
 
             const enlace =
                 "https://l1nq.com/yllkfjx";
-
 
             const datos = {
 
@@ -99,7 +48,6 @@ if (botonCompartir) {
 
             };
 
-
             if (navigator.share) {
 
                 try {
@@ -108,9 +56,7 @@ if (botonCompartir) {
 
                 } catch (error) {
 
-                    console.log(
-                        "Compartir cancelado"
-                    );
+                    console.log("Compartir cancelado");
 
                 }
 
@@ -118,14 +64,10 @@ if (botonCompartir) {
 
                 try {
 
-                    await navigator.clipboard.writeText(
-                        enlace
-                    );
-
+                    await navigator.clipboard.writeText(enlace);
 
                     botonCompartir.innerHTML =
                         "✓ ¡Enlace copiado!";
-
 
                     setTimeout(function () {
 
@@ -133,7 +75,6 @@ if (botonCompartir) {
                             "<span>↗</span> Compartir";
 
                     }, 2500);
-
 
                 } catch (error) {
 
@@ -146,8 +87,8 @@ if (botonCompartir) {
 
             }
 
-        }
-    );
+        });
 
-}
-```
+    }
+
+});

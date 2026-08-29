@@ -216,9 +216,8 @@
 
                 <div class="tarjeta-interior">
 
-                    <div class="tarjeta-frente">
-
                         <div class="tarjeta-frente">
+                        
 
                             <img src="TARJETA5.jpg" alt="Versículo 5">
 
@@ -226,7 +225,7 @@
                                 💡 Ver significado
                             </button>
 
-                        </div>
+                        
 
                     </div>
 
@@ -433,8 +432,44 @@
     </main>
 
 
-    <script src="script.js"></script>
+```html
+<script>
+document.getElementById("entrar").onclick = function () {
+
+    const entrada = document.getElementById("entrada");
+    const pagina = document.getElementById("pagina");
+    const boton = document.getElementById("entrar");
+
+    // Evitar múltiples toques
+    boton.disabled = true;
+
+    // Abrir las puertas
+    entrada.classList.add("abierta");
+
+    // Mostrar la página después de abrir las puertas
+    setTimeout(function () {
+
+        entrada.style.opacity = "0";
+        pagina.classList.add("mostrar");
+
+        window.scrollTo(0, 0);
+
+    }, 2000);
+
+    // Quitar completamente la pantalla de entrada
+    setTimeout(function () {
+
+        entrada.style.display = "none";
+
+    }, 3000);
+
+};
+</script>
+
+<script src="script.js"></script>
+```
+
 
 </body>
 </html>
-```
+
