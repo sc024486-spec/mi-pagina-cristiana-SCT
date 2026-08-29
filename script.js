@@ -73,81 +73,78 @@ document.addEventListener("DOMContentLoaded", function () {
     /* =========================================
        COMPARTIR
     ========================================= */
-```javascript
-const botonCompartir =
-    document.getElementById("botonCompartir");
+
+    const botonCompartir =
+        document.getElementById("botonCompartir");
 
 
-if (botonCompartir) {
+    if (botonCompartir) {
 
-    botonCompartir.addEventListener(
-        "click",
-        async function () {
+        botonCompartir.addEventListener(
+            "click",
+            async function () {
 
-            const enlace =
-                "https://sc024486-spec.github.io/mi-pagina-cristiana-SCT/";
+                const datos = {
 
+                    title: "Palabras de Dios",
 
-            const datos = {
+                    text:
+                        "Te comparto esta página con versículos y reflexiones cristianas ❤️",
 
-                title: "Palabras de Dios",
+                    url: window.location.href
 
-                text:
-                    "Te comparto esta página con versículos y reflexiones cristianas ❤️",
-
-                url: enlace
-
-            };
+                };
 
 
-            if (navigator.share) {
+                if (navigator.share) {
 
-                try {
+                    try {
 
-                    await navigator.share(datos);
+                        await navigator.share(datos);
 
-                } catch (error) {
+                    } catch (error) {
 
-                    console.log(
-                        "Compartir cancelado"
-                    );
+                        console.log(
+                            "Compartir cancelado"
+                        );
 
-                }
+                    }
 
-            } else {
+                } else {
 
-                try {
+                    try {
 
-                    await navigator.clipboard.writeText(
-                        enlace
-                    );
+                        await navigator.clipboard.writeText(
+                            window.location.href
+                        );
 
-
-                    botonCompartir.innerHTML =
-                        "✓ ¡Enlace copiado!";
-
-
-                    setTimeout(function () {
 
                         botonCompartir.innerHTML =
-                            "<span>↗</span> Compartir";
-
-                    }, 2500);
+                            "✓ ¡Enlace copiado!";
 
 
-                } catch (error) {
+                        setTimeout(function () {
 
-                    alert(
-                        "Copia este enlace:\n\n" +
-                        enlace
-                    );
+                            botonCompartir.innerHTML =
+                                "<span>↗</span> Compartir";
+
+                        }, 2500);
+
+
+                    } catch (error) {
+
+                        alert(
+                            "Copia este enlace:\n\n" +
+                            window.location.href
+                        );
+
+                    }
 
                 }
 
             }
+        );
 
-        }
-    );
+    }
 
-}
-```
+});
