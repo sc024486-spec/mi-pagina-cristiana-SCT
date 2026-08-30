@@ -830,7 +830,7 @@ footer div {
    CELULARES PEQUEÑOS
 ========================================= */
 
-@media (max-width: 380px) {
+@media (max-width: 370px) {
 
     .tarjeta,
     .tarjeta-interior,
@@ -861,3 +861,985 @@ footer div {
 #entrada.abierta {
     pointer-events: none;
 }
+```css
+/* =========================================
+   ACCIONES - ORACIÓN + COMPARTIR
+========================================= */
+
+.acciones {
+
+    max-width: 950px;
+
+    margin: 80px auto 50px;
+
+    padding: 35px 25px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+
+    background:
+        rgba(255,255,255,0.92);
+
+    border: 4px solid #111;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.35);
+
+}
+
+
+/* =========================================
+   CADA ACCIÓN
+========================================= */
+
+.accion {
+
+    text-align: center;
+
+    padding: 25px 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.accion-icono {
+
+    font-size: 42px;
+
+    margin-bottom: 10px;
+}
+
+
+.accion h2 {
+
+    font-size: 27px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.accion p {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    max-width: 370px;
+
+    min-height: 78px;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =========================================
+   BOTONES
+========================================= */
+
+.boton-accion {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    min-width: 220px;
+
+    padding: 15px 28px;
+
+    border: 3px solid #111;
+
+    border-radius: 50px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+
+}
+
+
+/* Botón oración */
+
+.boton-oracion {
+
+    background: #1c6b36;
+
+    color: white;
+}
+
+
+.boton-oracion:hover {
+
+    background: #ffd700;
+
+    color: #111;
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 20px rgba(0,0,0,0.3);
+
+}
+
+
+/* Botón compartir */
+
+.boton-compartir {
+
+    background: #ffd700;
+
+    color: #111;
+}
+
+
+.boton-compartir:hover {
+
+    background: #1c6b36;
+
+    color: white;
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 20px rgba(0,0,0,0.3);
+
+}
+
+
+/* =========================================
+   VENTANA DEL FORMULARIO
+========================================= */
+
+.ventana-oracion {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100000;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(0,0,0,0.75);
+
+    backdrop-filter:
+        blur(5px);
+
+}
+
+
+.ventana-oracion.activa {
+
+    display: flex;
+
+}
+
+
+/* =========================================
+   CONTENEDOR FORMULARIO
+========================================= */
+
+.formulario-contenedor {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 650px;
+
+    max-height: 90vh;
+
+    overflow: hidden;
+
+    background: white;
+
+    border: 5px solid #111;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.6);
+
+    animation:
+        aparecerFormulario 0.35s ease;
+
+}
+
+
+@keyframes aparecerFormulario {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.96);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================================
+   TITULO DEL FORMULARIO
+========================================= */
+
+.formulario-titulo {
+
+    text-align: center;
+
+    padding: 25px 45px 10px;
+
+}
+
+
+.formulario-titulo > div {
+
+    font-size: 38px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.formulario-titulo h2 {
+
+    font-size: 28px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.formulario-titulo p {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    margin: 0;
+
+}
+
+
+/* =========================================
+   CERRAR
+========================================= */
+
+.cerrar-oracion {
+
+    position: absolute;
+
+    top: 12px;
+
+    right: 15px;
+
+    z-index: 10;
+
+    width: 40px;
+
+    height: 40px;
+
+    border: 2px solid #111;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: #111;
+
+    font-size: 28px;
+
+    line-height: 30px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.cerrar-oracion:hover {
+
+    background: #111;
+
+    color: white;
+
+    transform: rotate(90deg);
+
+}
+
+
+/* =========================================
+   IFRAME GOOGLE FORMS
+========================================= */
+
+.formulario-contenedor iframe {
+
+    display: block;
+
+    width: 100%;
+
+    height: 650px;
+
+    border: none;
+
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 700px) {
+
+    .acciones {
+
+        grid-template-columns: 1fr;
+
+        gap: 0;
+
+        margin-top: 60px;
+
+        padding: 25px 15px;
+
+    }
+
+
+    .accion {
+
+        padding: 25px 10px;
+
+    }
+
+
+    .accion:first-child {
+
+        border-bottom:
+            2px solid rgba(0,0,0,0.15);
+
+        padding-bottom: 35px;
+
+    }
+
+
+    .accion:last-child {
+
+        padding-top: 35px;
+
+    }
+
+
+    .accion h2 {
+
+        font-size: 24px;
+
+    }
+
+
+    .accion p {
+
+        min-height: auto;
+
+        font-size: 15px;
+
+    }
+
+
+    .boton-accion {
+
+        width: 100%;
+
+        max-width: 300px;
+
+    }
+
+
+    .ventana-oracion {
+
+        padding: 10px;
+
+    }
+
+
+    .formulario-contenedor {
+
+        max-height: 94vh;
+
+        border-width: 3px;
+
+        border-radius: 18px;
+
+    }
+
+
+    .formulario-titulo {
+
+        padding:
+            20px 40px 5px;
+
+    }
+
+
+    .formulario-titulo h2 {
+
+        font-size: 23px;
+
+    }
+
+
+    .formulario-titulo p {
+
+        font-size: 13px;
+
+    }
+
+
+    .formulario-contenedor iframe {
+
+        height: 600px;
+
+    }
+    
+
+}
+```css
+/* =========================================
+   ACCIONES - ORACIÓN + COMPARTIR
+========================================= */
+
+.acciones {
+
+    max-width: 950px;
+
+    margin: 80px auto 50px;
+
+    padding: 35px 25px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+
+    background:
+        rgba(255,255,255,0.92);
+
+    border: 4px solid #111;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.35);
+
+}
+
+
+/* =========================================
+   CADA ACCIÓN
+========================================= */
+
+.accion {
+
+    text-align: center;
+
+    padding: 25px 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+}
+
+
+.accion-icono {
+
+    font-size: 42px;
+
+    margin-bottom: 10px;
+}
+
+
+.accion h2 {
+
+    font-size: 27px;
+
+    margin-bottom: 12px;
+
+}
+
+
+.accion p {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    max-width: 370px;
+
+    min-height: 78px;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =========================================
+   BOTONES
+========================================= */
+
+.boton-accion {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    min-width: 220px;
+
+    padding: 15px 28px;
+
+    border: 3px solid #111;
+
+    border-radius: 50px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+
+}
+
+
+/* Botón oración */
+
+.boton-oracion {
+
+    background: #1c6b36;
+
+    color: white;
+}
+
+
+.boton-oracion:hover {
+
+    background: #ffd700;
+
+    color: #111;
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 20px rgba(0,0,0,0.3);
+
+}
+
+
+/* Botón compartir */
+
+.boton-compartir {
+
+    background: #ffd700;
+
+    color: #111;
+}
+
+
+.boton-compartir:hover {
+
+    background: #1c6b36;
+
+    color: white;
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 20px rgba(0,0,0,0.3);
+
+}
+
+
+/* =========================================
+   VENTANA DEL FORMULARIO
+========================================= */
+
+.ventana-oracion {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100000;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(0,0,0,0.75);
+
+    backdrop-filter:
+        blur(5px);
+
+}
+
+
+.ventana-oracion.activa {
+
+    display: flex;
+
+}
+
+
+/* =========================================
+   CONTENEDOR FORMULARIO
+========================================= */
+
+.formulario-contenedor {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 650px;
+
+    max-height: 90vh;
+
+    overflow: auto;
+
+    background: white;
+
+    border: 5px solid #111;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.6);
+
+    animation:
+        aparecerFormulario 0.35s ease;
+
+}
+
+
+@keyframes aparecerFormulario {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.96);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================================
+   TITULO DEL FORMULARIO
+========================================= */
+
+.formulario-titulo {
+
+    text-align: center;
+
+    padding: 25px 45px 10px;
+
+}
+
+
+.formulario-titulo > div {
+
+    font-size: 38px;
+
+    margin-bottom: 5px;
+
+}
+
+
+.formulario-titulo h2 {
+
+    font-size: 28px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.formulario-titulo p {
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    margin: 0;
+
+}
+
+
+/* =========================================
+   CERRAR
+========================================= */
+
+.cerrar-oracion {
+
+    position: absolute;
+
+    top: 12px;
+
+    right: 15px;
+
+    z-index: 10;
+
+    width: 40px;
+
+    height: 40px;
+
+    border: 2px solid #111;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: #111;
+
+    font-size: 28px;
+
+    line-height: 30px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.cerrar-oracion:hover {
+
+    background: #111;
+
+    color: white;
+
+    transform: rotate(90deg);
+
+}
+
+
+/* =========================================
+   IFRAME GOOGLE FORMS
+========================================= */
+
+.formulario-contenedor iframe {
+
+    display: block;
+
+    width: 100%;
+
+    height: 750px;
+
+    border: none;
+
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 700px) {
+
+    .acciones {
+
+        grid-template-columns: 1fr;
+
+        gap: 0;
+
+        margin-top: 60px;
+
+        padding: 25px 15px;
+
+    }
+
+
+    .accion {
+
+        padding: 25px 10px;
+
+    }
+
+
+    .accion:first-child {
+
+        border-bottom:
+            2px solid rgba(0,0,0,0.15);
+
+        padding-bottom: 35px;
+
+    }
+
+
+    .accion:last-child {
+
+        padding-top: 35px;
+
+    }
+
+
+    .accion h2 {
+
+        font-size: 24px;
+
+    }
+
+
+    .accion p {
+
+        min-height: auto;
+
+        font-size: 15px;
+
+    }
+
+
+    .boton-accion {
+
+        width: 100%;
+
+        max-width: 300px;
+
+    }
+
+
+    .ventana-oracion {
+
+        padding: 10px;
+
+    }
+
+
+    .formulario-contenedor {
+
+        max-height: 94vh;
+
+        border-width: 3px;
+
+        border-radius: 18px;
+
+    }
+
+
+    .formulario-titulo {
+
+        padding:
+            20px 40px 5px;
+
+    }
+
+
+    .formulario-titulo h2 {
+
+        font-size: 23px;
+
+    }
+
+
+    .formulario-titulo p {
+
+        font-size: 13px;
+
+    }
+
+
+    .formulario-contenedor iframe {
+
+        height: 800px;
+
+    }
+
+}
+```
+
+```

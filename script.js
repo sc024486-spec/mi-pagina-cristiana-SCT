@@ -90,5 +90,66 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
     }
+    
+
+    /* =========================================
+       PETICIÓN DE ORACIÓN
+    ========================================= */
+
+    const botonOracion =
+        document.getElementById("botonOracion");
+
+    const ventanaOracion =
+        document.getElementById("ventanaOracion");
+
+    const cerrarOracion =
+        document.getElementById("cerrarOracion");
+
+
+    if (botonOracion && ventanaOracion) {
+
+        botonOracion.addEventListener("click", function () {
+
+            ventanaOracion.classList.add("activa");
+
+            document.body.style.overflow = "hidden";
+
+        });
+
+    }
+
+
+    if (cerrarOracion && ventanaOracion) {
+
+        cerrarOracion.addEventListener("click", function () {
+
+            ventanaOracion.classList.remove("activa");
+
+            document.body.style.overflow = "";
+
+        });
+
+    }
+
+
+
+/* Cerrar tocando fuera del formulario */
+
+if (ventanaOracion) {
+
+    ventanaOracion.addEventListener("click", function (e) {
+
+        if (e.target === ventanaOracion) {
+
+            ventanaOracion.classList.remove("activa");
+
+            document.body.style.overflow = "";
+
+        }
+
+    });
+
+}
 
 });
+
